@@ -1,0 +1,78 @@
+ <section class="timelinespace">
+            <div id="timeline">
+                  
+                <h2>CONOCE NUESTROS PROYECTOS EN EL TIEMPO</h2>
+                <ul id="dates">
+<!--DATES-->
+                  {%for projects in projects%}
+                  <!--80--><li><a id="btnex80" href="#{{projects.ids}}">2018-6</a></li>
+                  {%endfor%}
+
+
+                </ul>
+                
+                <ul id="issues">
+                  <div class="closeCard">X</div>
+
+                  {%for projects in projects%}
+                  
+                  <!--01--><li id="{{projects.ids}}">
+                    <div class="contenidorexperiencia">
+                          <div class="bloquecompleto">
+                              <div class="datosexperiencia">
+                                    <h3 class="fechaini"><span>Inicio: </span>{{projects.inicio}}</h3>
+                                    <h3 class="fechadur"><span>Duración: </span>{{projects.duracion}}</h3>
+                                    <p class="productoexp"><span>Proyecto: </span>{{projects.experiencia}}</p>
+                                    <p class="descripcionexp">{{projects.descripcion}}</p>
+                                    <div class="herramientasexperiencias">
+                                          <p>Encuentros lúdico – empresariales sobre gestión del cambio.</br>
+                                          Talleres de fortalecimiento de habilidades empresariales.</br>
+                                          Rueda de negocios.</br>
+                                          Diagnóstico.</br>
+                                          Asistencia técnica en temas de producción y comercialización.</p>
+                                    </div>
+                                    <div class="unidadesexperinecia">
+                                          <span>{{projects.unidades}}</span># Unidades productivas intervenidas
+                                    </div>
+                                    <ul class="numexperiencia">
+                                          <li class="numerito"><span>{{projects.departametos}}</span> # Departametos</li>
+                                          <li class="numerito"><span>{{projects.ciudades}}</span> # Ciudades</li>
+                                          <li class="numerito"><span>{{projects.consultores}}</span> # Consultores</li>
+                                          <li class="numerito"><span>{{projects.asesorados}}</span> # Asesorados</li>
+                                    </ul>
+                              </div>
+                              <img class="imagenexperiencia" src="/media/{{projects.foto}}" width="280" height="380" />
+                          </div>
+                          <div class="bloqueimagenes">
+                              <div class="conteidoimagenes">
+                                  <div class="aliadosexp">
+                                    {%if projects.aliados%}
+                                      <p class=""><span>Aliados: </span></p>
+                                      <img src="/static/{{projects.aliados}}" />
+                                    {%endif%}
+                                  </div>
+                                  <div class="contratistasexp">
+                                    {%if projects.contratantes%}
+                                      <p class=""><span>Contratantes: </span></p>
+                                      <img src="/static/{{projects.contratantes}}" />
+                                      {%endif%}
+                                  </div>
+                              </div>
+                          </div>
+                    </div>
+                  </li>
+
+                  {%endfor%}
+
+                <div id="grad_left"></div>
+                <div id="grad_right"></div>
+                <a href="#" id="next">+</a>
+                <a href="#" id="prev">-</a>
+
+                </ul>
+                
+
+
+
+            </div>
+      </section>
