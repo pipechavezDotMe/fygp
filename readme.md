@@ -1,7 +1,8 @@
 A. Utilizamos el ORM de Django (Un Framework del lenguaje Python) para agilizar la creación y modificación de la base de datos Mysql mediante el uso de MVC (Modelo vista controlador). Una vez creada la base de datos, Django nos facilita un administrador para la inserción de nuevos datos.
 
-  This is the "Elonlegan Fork  for https://www.github.com/elonlegan/marzo-entrega documentation", a django 1.8.2 project very easy to install in production.
+  This is the "Elonlegan Fork  for https://www.github.com/elonlegan/marzo-entrega documentation"
 
+Instrucciones para ejecutar el ORM de Django: 
   1. Install Python, pip, django, pillow, mysql and mysql python connector.
   2. Git clone this project.
   3. Mysql create database character set utf8.
