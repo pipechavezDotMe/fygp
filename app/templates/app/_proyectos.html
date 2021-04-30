@@ -5,7 +5,7 @@
                 <ul id="dates">
 <!--DATES-->
                   {%for projects in projects%}
-                  <!--80--><li><a id="btnex80" href="#{{projects.ids}}">2018-6</a></li>
+                  <!--80--><li><a id="btnex80" href="#{{projects.ids}}">{{projects.periodos}}</a></li>
                   {%endfor%}
 
 
@@ -20,7 +20,7 @@
                     <div class="contenidorexperiencia">
                           <div class="bloquecompleto">
                               <div class="datosexperiencia">
-                                    <h3 class="fechaini"><span>Inicio: </span>{{projects.inicio}}</h3>
+                                    <h3 class="fechaini"><span>Inicio: </span>{{projects.inicio|date:"j F, Y"}}</h3>
                                     <h3 class="fechadur"><span>Duración: </span>{{projects.duracion}}</h3>
                                     <p class="productoexp"><span>Proyecto: </span>{{projects.experiencia}}</p>
                                     <p class="descripcionexp">{{projects.descripcion}}</p>
