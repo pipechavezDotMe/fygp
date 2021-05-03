@@ -2,32 +2,39 @@
 {% include 'app/_hoverheader.html'%}
 
 <div id="appRnav" class="appRnav">
-  {%for projects in projects%}
-              <ul>
-                <li><a id="list-project{{projects.id}}" href="#">{{projects.periodos}} - {{projects.experiencia}}</a></li>
-                <div class="edit">
-                  <a href="#">Editar</a><a href="#">Eliminar</a>
-                </div>
-              </ul>
-  {%endfor%}
+  <div class="containerList">
 
+    {%for projects in projects%}
+                <ul>
+                  <li><a id="list-project{{projects.id}}" href="#">{{projects.periodos}} - {{projects.experiencia}}</a></li>
+                  <div class="edit">
+                    <a href="#">Editar</a><a href="#">Eliminar</a>
+                  </div>
+                </ul>
+    {%endfor%}
+
+    </div>
+</div>
   <div class="foot">
     {%if user.userprofile%}
+      <a href="{%url 'app.home'%}">Inicio</a>
       <a href="{%url 'app.logout'%}">Cerrar sesión</a>
       {%else%}
+      <a href="{%url 'app.home'%}">Inicio</a>
       <a href="{%url 'app.logout'%}">Cerrar sesión</a>
       {%endif%}
   </div>
-</div>
+
 
 <style type="text/css">
 *{margin: 0;padding: 0;text-decoration: none;list-style: none;font-family: 'Roboto', sans-serif;-webkit-transition: All 0.2s ease;-moz-transition: All 0.2s ease;-o-transition: All 0.2s ease;-ms-transition: All 0.2s ease;transition: All 0.2s ease;box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
-	#appRnav{overflow:auto;padding:20px;margin:0 auto;margin-top:36px;padding-top:160px;padding-bottom:200px;width: 100%;height: 100%;right: 0;top: 0;justify-content: center;align-items: center;}
+	#appRnav{margin:0 auto;margin-top:36px;padding-top:74px;padding-bottom:168px;width: 100%;height: 100%;right: 0;top: 0;justify-content: center;align-items: center;}
   #appRnav ul{display:block;background:rgba(255,255,255,0.2);padding:20px;}
   #appRnav ul:hover{background:rgba(255,255,255,0.1);}
-  .edit a{padding:10px;}
+  .containerList{overflow:auto;width:100%;height:100%;}
+  .foot a{padding:10px 10px;}
   .edit{padding:10px;background:rgba(0,0,0,0.5);margin-top:5px;border-radius:5px;}
-  .foot{width:100%;padding:20px;background:#009ee2;position:fixed;bottom:0;right:20px;
+  .foot{width:100%;padding:20px;background:#009ee2;position:fixed;bottom:0;right:0px;
   padding-left:30px;}
   .logoFygp {
     position: fixed;
@@ -38,7 +45,7 @@
     padding: 10px;
     width: 100%;
     top: 34px!important;
-    right:20px;
+    right:0px;
     padding-left:30px;
 }
 </style>
