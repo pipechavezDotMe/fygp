@@ -1,1 +1,8 @@
-ListView
+{% include 'app/_header.html'%}
+{% include 'app/_hoverheader.html'%}
+
+{%for projects in projects%}
+<!--80--><li><a id="btnex80" href="#{{projects.ids}}">{{projects.periodos}} - {{projects.titulo}}</a></li>
+{%endfor%}
+
+{% include 'app/_footer.html'%}
