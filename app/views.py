@@ -38,10 +38,6 @@ def home_view(request):
     return render_to_response(template,locals(),context_instance=RequestContext(request))
 
 def login_view(request):
-    template = 'app/admin/login.html'
-    return render_to_response(template,locals(),context_instance=RequestContext(request))
-
-def login_view(request):
     # Si el usuario esta ya logueado, lo redireccionamos a index_view
     if request.user.is_authenticated():
         return redirect(reverse('app.list'))
