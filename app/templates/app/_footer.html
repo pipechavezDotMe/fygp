@@ -1,0 +1,32 @@
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/sprites.js"></script>
+<script src="/static/js/jquery.timelinr-0.9.7.js"></script>
+<script>
+jQuery(document).ready(function ($) {
+      // Slow load in
+      setTimeout(function(){
+           $('body').addClass('loaded');
+      },2000);
+
+      // close modal
+      $('a.closeModal').on('click', function (event){
+            event.preventDefault();
+            $('.modal').addClass('close');
+      });
+
+
+      $().timelinr({
+            arrowKeys: 'true'
+      })
+});
+</script>
+
+<script src="/static/js/background-animation.js"></script>
+<script src="/static/js/game-modal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+<script src="/static/js/index.js" type="module"></script>
+<script src="/static/js/scripts.js"></script>
+
+
+</body>
+</html>

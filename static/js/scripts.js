@@ -1,33 +1,37 @@
+const timeLineDiv = document.querySelector('.timelinespace');
+
 $(function () {
-  function hideCardsInfo() {
-    document
-      .querySelectorAll("#issues.contenidorexperiencia")
-      .forEach((element) => {
-        element.style.display = "none";
-      });
-  }
+	function hideCardsInfo() {
+		document
+			.querySelectorAll('#issues.contenidorexperiencia')
+			.forEach((element) => {
+				element.style.display = 'none';
+			});
+	}
 
-  function showCardById(id) {
-    $("#" + id + " .contenidorexperiencia").show();
-    $("#issues").show();
-  }
+	function showCardById(id) {
+		$('#' + id + ' .contenidorexperiencia').show();
+		$('#issues').show();
+		timeLineDiv.style.height = '90%';
+	}
 
-  const timeLineDates = document.querySelectorAll("#dates a");
-  timeLineDates.forEach((date) =>
-    date.addEventListener("click", (event) => {
-      hideCardsInfo();
-      showCardById(event.target.href.split("#")[1]);
-    })
-  );
+	const timeLineDates = document.querySelectorAll('#dates a');
+	timeLineDates.forEach((date) =>
+		date.addEventListener('click', (event) => {
+			hideCardsInfo();
+			showCardById(event.target.href.split('#')[1]);
+		})
+	);
 
-  $(".closeCard").bind("click", () => {
-    $("#issues").hide();
-  });
+	$('.closeCard').bind('click', () => {
+		$('#issues').hide();
+		timeLineDiv.style.height = '20%';
+	});
 
-  $("#issues").hide();
+	$('#issues').hide();
 });
 
-var bgd = document.querySelector("#animated_div");
+var bgd = document.querySelector('#animated_div');
 console.log(bgd);
 
 /*window.setInterval(function(){
@@ -51,5 +55,5 @@ document.bgd.style.backgroundImage = 'url('+ fondos[precargar]+ ')';
 document.getElementById('precarga').style.backgroundImage =  'url('+fondos[precargar2]+ ')';
 }
 //aqui definís el tiempo en milisegundos e  inicias la función con setInterval para que se repita indefinidamente
-window.setInterval(CambiarFondo, 1000); 
+window.setInterval(CambiarFondo, 1000);
 //]]>*/
