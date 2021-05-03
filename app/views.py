@@ -64,3 +64,8 @@ def list_view(request):
     projects = Proyecto.objects.all().order_by('-create_at')
     template = 'app/admin/list.html'
     return render_to_response(template,locals(),context_instance=RequestContext(request))
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Ingresa para continuar')
+    return redirect(reverse('app.login'))
