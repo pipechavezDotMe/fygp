@@ -19,14 +19,14 @@ export class Game extends Phaser.Scene {
 
 	preload() {
 		this.background = [
-			'../img/animados/Japon.svg',
-			'../img/animados/lima.svg',
-			'../img/animados/hong_kong.svg',
-			'../img/animados/londres.svg',
-			'../img/animados/toronto_.svg',
-			'../img/animados/rio_janeiro.svg',
-			'../img/animados/bogota.svg',
-			'../img/animados/chicago.svg',
+			'../images/Japon.svg',
+			'../images/lima.svg',
+			'../images/hong_kong.svg',
+			'../images/londres.svg',
+			'../images/toronto_.svg',
+			'../images/rio_janeiro.svg',
+			'../images/bogota.svg',
+			'../images/chicago.svg',
 		];
 		this.backgroundWidth = 700;
 		this.backgroundHeight = 700;
@@ -46,12 +46,12 @@ export class Game extends Phaser.Scene {
 
 		this.load.image('laser', 'https://i.postimg.cc/dQp78ZCw/laser-Blue02.png');
 
-		this.load.audio('gameoversample', 'sounds/gameover.ogg');
-		this.load.audio('startgamesample', 'sounds/start-game.ogg');
-		this.load.audio('livelostsample', 'sounds/live-lost.ogg');
-		this.load.audio('changeTab', 'sounds/change-tab.ogg');
-		this.load.audio('breakAsteroid', 'sounds/break-asteroid.wav');
-		this.load.audio('shoot', 'sounds/shoot.wav');
+		this.load.audio('gameoversample', '../../static/sounds/gameover.ogg');
+		this.load.audio('startgamesample', '../../static/sounds/start-game.ogg');
+		this.load.audio('livelostsample', '../../static/sounds/live-lost.ogg');
+		this.load.audio('changeTab', '../../static/sounds/change-tab.ogg');
+		this.load.audio('breakAsteroid', '../../static/sounds/break-asteroid.wav');
+		this.load.audio('shoot', '../../static/sounds/shoot.wav');
 		this.objects = {};
 	}
 
