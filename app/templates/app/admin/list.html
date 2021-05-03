@@ -18,9 +18,15 @@
   <div class="foot">
     {%if user.userprofile%}
       <a href="{%url 'app.home'%}">Inicio</a>
+      <a href="#">Nuevo Proyecto</a>
+      <a href="#">Nuevo Período</a>
+      <a href="#">Control de Usuarios</a>
       <a href="{%url 'app.logout'%}">Cerrar sesión</a>
       {%else%}
       <a href="{%url 'app.home'%}">Inicio</a>
+      <a href="#">Nuevo Proyecto</a>
+      <a href="#">Nuevo Período</a>
+      <a href="#">Control de Usuarios</a>
       <a href="{%url 'app.logout'%}">Cerrar sesión</a>
       {%endif%}
   </div>
