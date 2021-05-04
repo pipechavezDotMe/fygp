@@ -14,12 +14,32 @@
 
     <div class="heads">
       <p>{{projects.experiencia}}</p>
-
-      <p>{{projects.description}}</p>
-
+    </div>
+    <div class="info-item">
       <img src="/media/{{projects.foto}}" alt="" width="200px;">
+
+      <p><span>Titulo: </span>{{projects.descripcion}}  <a href="#">Editar</a></p>
+      <p><span>Período: </span>{{projects.periodos}}  <a href="#">Editar</a></p>
+      <p><span>Inicio: </span>{{projects.inicio}}  <a href="#">Editar</a></p>
+      <p><span>Duración: </span>{{projects.duracion}}  <a href="#">Editar</a></p>
+      <p><span>Herramientas: </span>{{projects.herramientas}}  <a href="#">Editar</a></p>
+      <p><span>Unidades: </span>{{projects.unidades}}  <a href="#">Editar</a></p>
+      <p><span>Departamentos: </span>{{projects.departametos}}  <a href="#">Editar</a></p>
+      <p><span>Ciudades: </span>{{projects.ciudades}}  <a href="#">Editar</a></p>
+      <p><span>Consultores: </span>{{projects.consultores}}  <a href="#">Editar</a></p>
+      <p><span>Asesorados: </span>{{projects.asesorados}}  <a href="#">Editar</a></p>
+      <p><span>Aliados: </span>{{projects.aliados}}  <a href="#">Editar</a></p>
+      <p><span>Contratantes: </span>{{projects.contratantes}}  <a href="#">Editar</a></p>
+
+
     </div>
 
+    <style type="text/css">
+      .info-item{background:#fff;width:400px;border-radius:4px;padding:10px;margin:10px;}
+      .info-item a{color:#eec341ff;}
+      .info-item img{border: 1px solid #eec341ff;}
+      .info-item span{font-weight:bold;}
+    </style>
 
     </div>
 </div>
