@@ -13,17 +13,13 @@
   <div class="containerList">
 
     <div class="heads">
-      <p>Control de Proyectos</p>
+      <p>{{projects.experiencia}}</p>
+
+      <p>{{projects.description}}</p>
+
+      <img src="/media/{{projects.foto}}" alt="" width="200px;">
     </div>
 
-    {%for projects in projects%}
-                <ul>
-                  <li><a id="list-project{{projects.id}}" href="{% url 'app.proyecto' projects.slug%}"><span class="pam">({{projects.periodos}})</span> - {{projects.experiencia}}</a></li>
-                  <div class="edit">
-                    <a href="#">Editar</a><a href="#">Eliminar</a>
-                  </div>
-                </ul>
-    {%endfor%}
 
     </div>
 </div>

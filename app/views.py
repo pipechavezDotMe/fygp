@@ -38,7 +38,6 @@ def home_view(request):
     return render_to_response(template,locals(),context_instance=RequestContext(request))
 
 def login_view(request):
-    # Si el usuario esta ya logueado, lo redireccionamos a index_view
     if request.user.is_authenticated():
         return redirect(reverse('app.list'))
     message = ''
@@ -53,8 +52,6 @@ def login_view(request):
                 login(request, user)
                 return redirect(reverse('app.list'))
             else:
-                # Redireccionar informando que la cuenta esta inactiva
-                # Lo dejo como ejercicio al lector :)
                 pass
         message = 'Datos de ingreso incorrectos. Intente de nuevo'
     return render_to_response(template,locals(),context_instance=RequestContext(request))
@@ -69,3 +66,8 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'Ingresa para continuar')
     return redirect(reverse('app.login'))
+
+def proyecto_view(request, slug):
+    template = 'app/admin/proyecto.html'
+    projects = Proyecto.objects.get(slug = slug)
+    return render_to_response(template,locals(),context_instance=RequestContext(request))

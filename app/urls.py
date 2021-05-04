@@ -7,7 +7,6 @@ urlpatterns = [
     url(r'^$', views.home_view, name='app.home'),
     url(r'^login/$', views.login_view, name='app.login'),
     url(r'^list/$', views.list_view, name='app.list'),
-#    url(r'^proyecto/$$/$', views.list_view, name='app.list'),
-#    url(r'^proyectos/(?P<slug>[^\.]+)/$', views.blog_view, name='app.proyectos'),
+    url(r'^proyecto/(?P<slug>[^\.]+)/$', views.proyecto_view, name='app.proyecto'),
     url(r'^salir/$', views.logout_view, name='app.logout'),
 ]
