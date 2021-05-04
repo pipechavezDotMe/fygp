@@ -62,9 +62,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'fygp',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '4258237',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '3304',
     }
 }
 # Internationalization
