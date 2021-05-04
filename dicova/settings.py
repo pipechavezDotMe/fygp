@@ -60,11 +60,11 @@ WSGI_APPLICATION = 'dicova.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fygp',
-        'USER': 'root',
-        'PASSWORD': '4258237',
+        'NAME': 'picom_python01',
+        'USER': 'picom_python',
+        'PASSWORD': 'PRC2017cr',
         'HOST': 'localhost',
-        'PORT': '3304',
+        'PORT': '3306',
     }
 }
 # Internationalization
