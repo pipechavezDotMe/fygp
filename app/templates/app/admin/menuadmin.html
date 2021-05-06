@@ -1,54 +1,39 @@
-{% include 'app/_header.html'%}
-{% include 'app/_hoverheader.html'%}
+  <div class="foot">
+    {%if user.userprofile%}
+      <a href="{%url 'app.list'%}" class="menu-00">Inicio</a>
+      <a href="{%url 'app.crearproyecto'%}" class="menu-01">Nuevo Proyecto</a>
+      <a href="{%url 'app.crearperiodo'%}" class="menu-01">Nuevo Período</a>
+   <!--   <a href="#" class="menu-02">Control de Usuarios</a> -->
+      <a href="{%url 'app.logout'%}" class="menu-03">Cerrar sesión</a>
+      {%else%}
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
-</style>
-
-<div class="toptip">
-  <p>Administrador</p>
-</div>
-
-<div id="appRnav" class="appRnav">
-  <div class="containerList">
-
-    <div class="heads">
-      <p>Control de Proyectos</p>
-    </div>
-
-    {%for projects in projects%}
-                <ul>
-                  <li><a id="list-project{{projects.id}}" href="{% url 'app.proyecto' projects.slug%}"><span class="pam">({{projects.periodos}})</span> - {{projects.experiencia}}</a></li>
-                  <div class="edit">
-                    <a href="#">Editar</a><a href="{% url 'app.eliminar' projects.slug%}">Eliminar</a>
-                  </div>
-                </ul>
-    {%endfor%}
-
-    </div>
-</div>
-{% include 'app/admin/menuadmin.html'%}
-
+      {%endif%}
+  </div>
 
 
 <style type="text/css">
 *{margin: 0;padding: 0;text-decoration: none;list-style: none;font-family: 'Roboto', sans-serif;-webkit-transition: All 0.2s ease;-moz-transition: All 0.2s ease;-o-transition: All 0.2s ease;-ms-transition: All 0.2s ease;transition: All 0.2s ease;box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
 	#appRnav{margin:0 auto;margin-top:36px;padding-top:74px;padding-bottom:168px;width: 100%;height: 100%;right: 0;top: 0;justify-content: center;align-items: center;}
-  #appRnav ul{display:block;background:rgba(255,255,255,0.2);padding:20px;border-left:3px solid #eec341ff;border-bottom: 1px solid rgba(255,255,255,0.1);}
+  #appRnav ul{display:block;background:rgba(255,255,255,0.2);padding:20px;border-left:3px solid #eec341ff;}
   #appRnav ul:hover{background:rgba(255,255,255,0.1);}
   .containerList{overflow:auto;width:100%;height:100%;}
-  .heads p{font-family:'Oswald';font-size:30px;padding:20px;color:#eec341ff;text-align: center;}
+  .heads p{font-family:'Oswald';font-size:30px;padding:20px;color:#eec341ff;}
   .foot a{padding:10px 10px;font-family: 'Oswald', sans-serif;}
   .menu-01{padding-left:30px!important;background:url(/static/assets/add.png)no-repeat center left 5px;background-size:20px;}
   .menu-00{padding-left:30px!important;background:url(/static/assets/favicons.png)no-repeat center left 5px;background-size:20px;}
   .menu-02{padding-left:30px!important;background:url(/static/assets/users.png)no-repeat center left 5px;background-size:20px;}
   .menu-03{padding-left:30px!important;background:url(/static/assets/logout.png)no-repeat center left 5px;background-size:20px;}
-  .edit a{padding:10px; border-radius:20px; border: 2px solid #eec341ff;margin: 5px;display: inline-block;vertical-align: middle;}
+  .edit a{padding:10px; border-radius:20px; border: 2px solid #eec341ff;}
   .edit{padding:10px;background:rgba(0,0,0,0.5);margin-top:5px;border-radius:5px;}
   .foot{width:100%;padding:20px;background:#009ee2;position:fixed;bottom:0;right:0px;padding-left:30px;}
   .toptip{background:#fff;position:fixed;top:0;left:0;height:34px;width:100%;padding-top: 6px;padding-left: 30px;color: #009ee2;}
   .logoFygp {position: fixed;z-index: 15;margin-left: 0px!important;margin-top: 0px!important;background: rgba(0,0,0,0.5);padding: 10px;width: 100%;top: 34px!important;right:0px;padding-left:30px;}
   .pam{color:#eec341ff;font-size:11px;}
-</style>
 
-{% include 'app/_footer.html'%}
+</style>
+<style type="text/css">
+      .info-item{background:#fff;width:400px;border-radius:4px;padding:10px;margin:10px auto;}
+      .info-item a{color:#eec341ff;}
+      .info-item img{border: 1px solid #eec341ff;}
+      .info-item span{font-weight:bold;}
+    </style>

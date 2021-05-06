@@ -13,53 +13,40 @@
   <div class="containerList">
 
     <div class="heads">
-      <p>{{projects.experiencia}}</p>
+      <p>{{projects.experiencia}}<span> </span><a href="{% url 'app.upexperiencia' projects.slug%}">Editar</a></p>
     </div>
     <div class="info-item">
       <img src="/media/{{projects.foto}}" alt="" width="200px;">
 
-      <p><span>Titulo: </span>{{projects.descripcion}}  <a href="#">Editar</a></p>
-      <p><span>Período: </span>{{projects.periodos}}  <a href="#">Editar</a></p>
-      <p><span>Inicio: </span>{{projects.inicio}}  <a href="#">Editar</a></p>
-      <p><span>Duración: </span>{{projects.duracion}}  <a href="#">Editar</a></p>
-      <p><span>Herramientas: </span>{{projects.herramientas}}  <a href="#">Editar</a></p>
-      <p><span>Unidades: </span>{{projects.unidades}}  <a href="#">Editar</a></p>
-      <p><span>Departamentos: </span>{{projects.departametos}}  <a href="#">Editar</a></p>
-      <p><span>Ciudades: </span>{{projects.ciudades}}  <a href="#">Editar</a></p>
-      <p><span>Consultores: </span>{{projects.consultores}}  <a href="#">Editar</a></p>
-      <p><span>Asesorados: </span>{{projects.asesorados}}  <a href="#">Editar</a></p>
-      <p><span>Aliados: </span>{{projects.aliados}}  <a href="#">Editar</a></p>
+      <p><a href="">Editar</a><span>Descripción: </span>{{projects.descripcion}}</p>
+      <p><a href="#">Editar</a><span>Período: </span>{{projects.periodos}} </p>
+      <p><a href="#">Editar</a><span>Inicio: </span>{{projects.inicio}}  </p>
+      <p><a href="#">Editar</a><span>Duración: </span>{{projects.duracion}}</p>
+      <p><a href="#">Editar</a><span>Herramientas: </span>{{projects.herramientas|safe}} </p>
+      <p><a href="#">Editar</a><span>Unidades: </span>{{projects.unidades}}</p>
+      <p><a href="#">Editar</a><span>Departamentos: </span>{{projects.departametos}}</p>
+      <p><a href="#">Editar</a><span>Ciudades: </span>{{projects.ciudades}} </p>
+      <p><a href="#">Editar</a><span>Consultores: </span>{{projects.consultores}}  </p>
+      <p><a href="#">Editar</a><span>Asesorados: </span>{{projects.asesorados}} </p>
+      <p><a href="#">Editar</a><span>Aliados: </span>{{projects.aliados}} </p>
+      <img src="/media/{{projects.aliados}}" alt="" width="150px;">
       <p><span>Contratantes: </span>{{projects.contratantes}}  <a href="#">Editar</a></p>
-
+      <img src="/media/{{projects.contratantes}}" alt="" width="150px;">
 
     </div>
 
     <style type="text/css">
       .info-item{background:#fff;width:400px;border-radius:4px;padding:10px;margin:10px;}
-      .info-item a{color:#eec341ff;}
+      .info-item a{color:#eec341ff;background: #009ee2;padding: 5px;border-radius: 120px;font-weight: bold;}
+      .info-item a:hover{color:#fff;background: #009ee2;padding: 5px;border-radius: 120px;font-weight: bold;}
       .info-item img{border: 1px solid #eec341ff;}
       .info-item span{font-weight:bold;}
+      .info-item p{padding: 5px;}
     </style>
 
     </div>
 </div>
-  <div class="foot">
-    {%if user.userprofile%}
-      <a href="{%url 'app.home'%}" class="menu-00">Inicio</a>
-      <a href="#" class="menu-01">Nuevo Proyecto</a>
-      <a href="#" class="menu-01">Nuevo Período</a>
-      <a href="#" class="menu-02">Control de Usuarios</a>
-      <a href="{%url 'app.logout'%}" class="menu-03">Cerrar sesión</a>
-      {%else%}
-      <a href="{%url 'app.home'%}" class="menu-00">Inicio</a>
-      <a href="#" class="menu-01">Nuevo Proyecto</a>
-      <a href="#" class="menu-01">Nuevo Período</a>
-      <a href="#">Control de Usuarios</a>
-      <a href="#" class="menu-02">Control de Usuarios</a>
-      <a href="{%url 'app.logout'%}" class="menu-03">Cerrar sesión</a>
-      {%endif%}
-  </div>
-
+{% include 'app/admin/menuadmin.html'%}
 
 <style type="text/css">
 *{margin: 0;padding: 0;text-decoration: none;list-style: none;font-family: 'Roboto', sans-serif;-webkit-transition: All 0.2s ease;-moz-transition: All 0.2s ease;-o-transition: All 0.2s ease;-ms-transition: All 0.2s ease;transition: All 0.2s ease;box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
