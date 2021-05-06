@@ -5,9 +5,9 @@
     {% csrf_token %}
         {% if message %}<span>{{ message }}</span>{% endif %}
         <label for="username">Correo electrónico</label>
-    <input placeholder="Email" type="email" id="username" name="username" value="{{ username }}">
+    <input placeholder="Usuario" type="text" id="username" name="username" value="{{ username }}">
     <label for="password">Contraseña</label>
-    <input placeholder="Password" type="password" id="password" name="password">
+    <input placeholder="Contraseña" type="password" id="password" name="password">
     <button type="submit">Ingresar</button>
 		</form>
 </div>
