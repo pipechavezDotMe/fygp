@@ -1,6 +1,6 @@
-*media/
-media/
-media/*
+#*media/
+#media/
+#media/*
 *cert/
 cert/
 cert/*
