@@ -6,7 +6,11 @@ from . import views
 urlpatterns = [
     url(r'^$', views.home_view, name='app.home'),
     url(r'^admin/$', views.login_view, name='app.login'),
-    url(r'^list/$', views.list_view, name='app.list'),
+    url(r'^proyectos/$', views.list_view, name='app.list'),
     url(r'^proyecto/(?P<slug>[^\.]+)/$', views.proyecto_view, name='app.proyecto'),
     url(r'^salir/$', views.logout_view, name='app.logout'),
+    url(r'^eliminar/(?P<slug>[^\.]+)/$', views.borrarproyecto_view, name='app.eliminar'),
+    url(r'^nuevo-proyecto/$', views.crearproyecto_view, name='app.crearproyecto'),
+    url(r'^nuevo-periodo/$', views.crearperiodo_view, name='app.crearperiodo'),
+    url(r'^editar-proyecto-experiencia/(?P<slug>[^\.]+)/$', views.upexperiencia_view, name='app.upexperiencia'),
 ]

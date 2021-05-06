@@ -71,3 +71,94 @@ def proyecto_view(request, slug):
     template = 'app/admin/proyecto.html'
     projects = Proyecto.objects.get(slug = slug)
     return render_to_response(template,locals(),context_instance=RequestContext(request))
+
+def borrarproyecto_view(request, slug):
+    projects = Proyecto.objects.get(slug = slug)
+    projects.delete()
+    return redirect(reverse('app.list'))
+
+def crearproyecto_view(request):
+    def get_context_data(self, **kwargs):
+        context = super(crearproyecto_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = crearproyecto_form(request.POST, request.FILES)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            experiencia = cleaned_data.get('experiencia')
+            periodos = cleaned_data.get('periodos')
+            inicio = cleaned_data.get('inicio')
+            duracion = cleaned_data.get('duracion')
+            descripcion = cleaned_data.get('descripcion')
+            herramientas = cleaned_data.get('herramientas')
+            foto = cleaned_data.get('foto')
+            unidades = cleaned_data.get('unidades')
+            departametos = cleaned_data.get('departametos')
+            ciudades = cleaned_data.get('ciudades')
+            consultores = cleaned_data.get('consultores')
+            asesorados = cleaned_data.get('asesorados')
+            aliados = cleaned_data.get('aliados')
+            contratantes = cleaned_data.get('contratantes')
+            proyecto = Proyecto()
+            proyecto.experiencia = experiencia
+            proyecto.periodos = periodos
+            proyecto.inicio = inicio
+            proyecto.duracion = duracion
+            proyecto.descripcion = descripcion
+            proyecto.herramientas = herramientas
+            proyecto.foto = foto
+            proyecto.unidades = unidades
+            proyecto.departametos = departametos
+            proyecto.ciudades = ciudades
+            proyecto.consultores = consultores
+            proyecto.asesorados = asesorados
+            proyecto.aliados = aliados
+            proyecto.contratantes = contratantes
+            proyecto.save()
+            message = 'Proyecto publicado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = crearproyecto_form()
+    context = {'form': form}
+    context['proyecto'] = Proyecto.objects.all().order_by('-create_at')[:1]
+    return render(request, 'app/admin/crearproyecto.html', context)
+
+
+def crearperiodo_view(request):
+    def get_context_data(self, **kwargs):
+        context = super(crearperiodo_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = crearperiodo_form(request.POST, request.FILES)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            titulo = cleaned_data.get('titulo')
+            periodos = Periodos()
+            periodos.titulo = titulo
+            periodos.save()
+            message = 'Periodo publicado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = crearperiodo_form()
+    context = {'form': form}
+    return render(request, 'app/admin/crearperiodo.html', context)
+
+def upexperiencia_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context = super(crearproyecto_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = crearproyecto_form(request.POST, request.FILES)
+        if form.is_valid():
+            form = upexperiencia_form(request.POST, request.FILES)
+            proyecto = Proyecto.objects.get(slug = slug)
+            cleaned_data = form.cleaned_data
+            experiencia = cleaned_data.get('experiencia')
+            proyecto.experiencia = experiencia
+            proyecto.save()
+            message = 'Proyecto publicado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = upexperiencia_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
