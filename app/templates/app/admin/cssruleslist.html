@@ -16,7 +16,7 @@
 
     {%for cssrules in cssrules%}
                 <ul>
-                  <li><a id="list-project{{cssrules.id}}" href="{% url 'app.proyecto' cssrules.id%}"><span class="pam">({{cssrules.titulo}})</span> - {{cssrules.descripcion}}</a></li>
+                  <li><a id="list-project{{cssrules.id}}" href="#"><span class="pam">({{cssrules.titulo}})</span> - {{cssrules.descripcion}}</a></li>
                   <div class="edit">
          <!--           <a href="{% url 'app.proyecto' cssrules.id%}">Editar</a>
 -->
