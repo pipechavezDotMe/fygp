@@ -67,13 +67,13 @@ def logout_view(request):
     messages.success(request, 'Ingresa para continuar')
     return redirect(reverse('app.login'))
 
-def proyecto_view(request, slug):
+def proyecto_view(request, id):
     template = 'app/admin/proyecto.html'
-    projects = Proyecto.objects.get(slug = slug)
+    projects = Proyecto.objects.get(id = id)
     return render_to_response(template,locals(),context_instance=RequestContext(request))
 
-def borrarproyecto_view(request, slug):
-    projects = Proyecto.objects.get(slug = slug)
+def borrarproyecto_view(request, id):
+    projects = Proyecto.objects.get(id = id)
     projects.delete()
     return redirect(reverse('app.list'))
 
@@ -144,9 +144,9 @@ def crearperiodo_view(request):
     return render(request, 'app/admin/crearperiodo.html', context)
 
 
-def upexperiencia_view(request, slug):
+def upexperiencia_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(upexperiencia_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -154,7 +154,7 @@ def upexperiencia_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             experiencia = cleaned_data.get('experiencia')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.experiencia = experiencia
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -164,9 +164,9 @@ def upexperiencia_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
 
-def upperiodos_view(request, slug):
+def upperiodos_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(upperiodos_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -174,7 +174,7 @@ def upperiodos_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             periodos = cleaned_data.get('periodos')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.periodos = periodos
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -184,9 +184,9 @@ def upperiodos_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upperiodos.html', context)
 
-def upinicio_view(request, slug):
+def upinicio_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(upinicio_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -194,7 +194,7 @@ def upinicio_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             inicio = cleaned_data.get('inicio')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.inicio = inicio
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -204,9 +204,9 @@ def upinicio_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
 
-def upduracion_view(request, slug):
+def upduracion_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(upduracion_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -214,7 +214,7 @@ def upduracion_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             duracion = cleaned_data.get('duracion')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.duracion = duracion
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -224,9 +224,9 @@ def upduracion_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
 
-def updescripcion_view(request, slug):
+def updescripcion_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(updescripcion_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -234,7 +234,7 @@ def updescripcion_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             descripcion = cleaned_data.get('descripcion')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.descripcion = descripcion
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -244,9 +244,9 @@ def updescripcion_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
 
-def upherramientas_view(request, slug):
+def upherramientas_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(upherramientas_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -254,7 +254,7 @@ def upherramientas_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             herramientas = cleaned_data.get('herramientas')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.herramientas = herramientas
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -264,9 +264,9 @@ def upherramientas_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
 
-def upfoto_view(request, slug):
+def upfoto_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(upfoto_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -274,7 +274,7 @@ def upfoto_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             foto = cleaned_data.get('foto')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.foto = foto
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -284,9 +284,9 @@ def upfoto_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
 
-def upunidades_view(request, slug):
+def upunidades_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(upunidades_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -294,7 +294,7 @@ def upunidades_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             unidades = cleaned_data.get('unidades')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.unidades = unidades
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -304,9 +304,9 @@ def upunidades_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
 
-def updepartametos_view(request, slug):
+def updepartametos_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(updepartametos_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -314,7 +314,7 @@ def updepartametos_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             departametos = cleaned_data.get('departametos')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.departametos = departametos
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -324,9 +324,9 @@ def updepartametos_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
 
-def upciudades_view(request, slug):
+def upciudades_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(upciudades_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -334,7 +334,7 @@ def upciudades_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             ciudades = cleaned_data.get('ciudades')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.ciudades = ciudades
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -344,9 +344,9 @@ def upciudades_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
 
-def upconsultores_view(request, slug):
+def upconsultores_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(upconsultores_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -354,7 +354,7 @@ def upconsultores_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             consultores = cleaned_data.get('consultores')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.consultores = consultores
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -364,9 +364,9 @@ def upconsultores_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
 
-def upasesorados_view(request, slug):
+def upasesorados_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(upasesorados_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -374,7 +374,7 @@ def upasesorados_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             asesorados = cleaned_data.get('asesorados')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.asesorados = asesorados
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -384,9 +384,9 @@ def upasesorados_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
 
-def upaliados_view(request, slug):
+def upaliados_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(upaliados_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -394,7 +394,7 @@ def upaliados_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             aliados = cleaned_data.get('aliados')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.aliados = aliados
             proyecto.save()
             message = 'Proyecto actualizado'
@@ -404,9 +404,9 @@ def upaliados_view(request, slug):
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
 
-def upcontratantes_view(request, slug):
+def upcontratantes_view(request, id):
     def get_context_data(self, **kwargs):
-        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context['proyecto'] = Proyecto.objects.get(id=id)
         context = super(upcontratantes_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -414,7 +414,7 @@ def upcontratantes_view(request, slug):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             contratantes = cleaned_data.get('contratantes')
-            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto = Proyecto.objects.get(id = id)
             proyecto.contratantes = contratantes
             proyecto.save()
             message = 'Proyecto actualizado'

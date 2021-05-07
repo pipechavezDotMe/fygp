@@ -18,9 +18,9 @@
 
     {%for projects in projects%}
                 <ul>
-                  <li><a id="list-project{{projects.id}}" href="{% url 'app.proyecto' projects.slug%}"><span class="pam">({{projects.periodos}})</span> - {{projects.experiencia}}</a></li>
+                  <li><a id="list-project{{projects.id}}" href="{% url 'app.proyecto' projects.id%}"><span class="pam">({{projects.periodos}})</span> - {{projects.experiencia}}</a></li>
                   <div class="edit">
-                    <a href="{% url 'app.proyecto' projects.slug%}">Editar</a><a href="{% url 'app.eliminar' projects.slug%}">Eliminar</a>
+                    <a href="{% url 'app.proyecto' projects.id%}">Editar</a><a href="{% url 'app.eliminar' projects.id%}">Eliminar</a>
                   </div>
                 </ul>
     {%endfor%}
