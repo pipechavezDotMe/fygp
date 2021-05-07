@@ -52,7 +52,6 @@ class crearperiodo_form(forms.Form):
         label='Periodo',
         widget=forms.TextInput(attrs={'class': 'form-control'}))
 
-
 class upexperiencia_form(forms.Form):
     experiencia = forms.CharField(
         label='Titulo',
@@ -84,7 +83,7 @@ class upunidades_form(forms.Form):
     unidades = forms.CharField(
         label='Unidades',
         required=True,)
-class departametos_form(forms.Form):
+class updepartametos_form(forms.Form):
     departametos = forms.CharField(
         label='Departamentos',
         required=True,)

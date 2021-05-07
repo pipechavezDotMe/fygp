@@ -143,22 +143,283 @@ def crearperiodo_view(request):
     context = {'form': form}
     return render(request, 'app/admin/crearperiodo.html', context)
 
+
 def upexperiencia_view(request, slug):
     def get_context_data(self, **kwargs):
-        context = super(crearproyecto_view, self).get_context_data(**kwargs)
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(upexperiencia_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
-        form = crearproyecto_form(request.POST, request.FILES)
+        form = upexperiencia_form(request.POST)
         if form.is_valid():
-            form = upexperiencia_form(request.POST, request.FILES)
-            proyecto = Proyecto.objects.get(slug = slug)
             cleaned_data = form.cleaned_data
             experiencia = cleaned_data.get('experiencia')
+            proyecto = Proyecto.objects.get(slug = slug)
             proyecto.experiencia = experiencia
             proyecto.save()
-            message = 'Proyecto publicado'
+            message = 'Proyecto actualizado'
             return redirect(reverse('app.list'), {'message': message})
     else:
         form = upexperiencia_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def upperiodos_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(upperiodos_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = upperiodos_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            periodos = cleaned_data.get('periodos')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.periodos = periodos
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = upperiodos_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def upinicio_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(upinicio_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = upinicio_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            inicio = cleaned_data.get('inicio')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.inicio = inicio
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = upinicio_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def upduracion_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(upduracion_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = upduracion_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            duracion = cleaned_data.get('duracion')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.duracion = duracion
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = upduracion_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def updescripcion_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(updescripcion_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = updescripcion_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            descripcion = cleaned_data.get('descripcion')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.descripcion = descripcion
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = updescripcion_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def upherramientas_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(upherramientas_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = upherramientas_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            herramientas = cleaned_data.get('herramientas')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.herramientas = herramientas
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = upherramientas_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def upfoto_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(upfoto_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = upfoto_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            foto = cleaned_data.get('foto')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.foto = foto
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = upfoto_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def upunidades_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(upunidades_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = upunidades_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            unidades = cleaned_data.get('unidades')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.unidades = unidades
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = upunidades_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def updepartametos_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(updepartametos_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = updepartametos_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            departametos = cleaned_data.get('departametos')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.departametos = departametos
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = updepartametos_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def upciudades_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(upciudades_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = upciudades_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            ciudades = cleaned_data.get('ciudades')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.ciudades = ciudades
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = upciudades_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def upconsultores_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(upconsultores_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = upconsultores_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            consultores = cleaned_data.get('consultores')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.consultores = consultores
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = upconsultores_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def upasesorados_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(upasesorados_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = upasesorados_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            asesorados = cleaned_data.get('asesorados')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.asesorados = asesorados
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = upasesorados_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def upaliados_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(upaliados_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = upaliados_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            aliados = cleaned_data.get('aliados')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.aliados = aliados
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = upaliados_form()
+    context = {'form': form}
+    return render(request, 'app/admin/upexperiencia.html', context)
+
+def upcontratantes_view(request, slug):
+    def get_context_data(self, **kwargs):
+        context['proyecto'] = Proyecto.objects.get(slug=slug)
+        context = super(upcontratantes_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = upcontratantes_form(request.POST)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            contratantes = cleaned_data.get('contratantes')
+            proyecto = Proyecto.objects.get(slug = slug)
+            proyecto.contratantes = contratantes
+            proyecto.save()
+            message = 'Proyecto actualizado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = upcontratantes_form()
     context = {'form': form}
     return render(request, 'app/admin/upexperiencia.html', context)
