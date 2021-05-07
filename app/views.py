@@ -480,7 +480,7 @@ def crearcssrule_view(request):
             cssrule.descripcion = descripcion
             cssrule.save()
             message = 'Periodo publicado'
-            return redirect(reverse('app.list'), {'message': message})
+            return redirect(reverse('app.css'), {'message': message})
     else:
         form = crearcssrule_form()
     context = {'form': form}
