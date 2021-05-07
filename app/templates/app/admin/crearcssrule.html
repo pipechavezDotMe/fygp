@@ -5,9 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 </style>
 
-<div class="toptip">
-  <p>Administrador</p>
-</div>
+{% include 'app/admin/admintop.html'%}
 
 <div id="appRnav" class="appRnav">
   <div class="containerList">
@@ -18,7 +16,7 @@
 <div class="info-item">
 <div class="crearproyecto">
 <section class="app-homeForm">
-	<h2>Crear Periodo</h2>
+	<h2>Crear Css</h2>
             <form method="post" action="" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}

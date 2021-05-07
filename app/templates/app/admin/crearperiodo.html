@@ -5,9 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 </style>
 
-<div class="toptip">
-  <p>Administrador</p>
-</div>
+{% include 'app/admin/admintop.html'%}
 
 <div id="appRnav" class="appRnav">
   <div class="containerList">
@@ -53,4 +51,5 @@
   .pam{color:#eec341ff;font-size:11px;}
 </style>
 
+{% include 'app/admin/cssrules.html'%}
 {% include 'app/_footer.html'%}

@@ -82,6 +82,11 @@ def borrarproyecto_view(request, id):
     projects.delete()
     return redirect(reverse('app.list'))
 
+def borrarcss_view(request, id):
+    cssrules = Cssrules.objects.get(id = id)
+    cssrules.delete()
+    return redirect(reverse('app.css'))
+
 def crearproyecto_view(request):
     def get_context_data(self, **kwargs):
         context = super(crearproyecto_view, self).get_context_data(**kwargs)
@@ -480,3 +485,11 @@ def crearcssrule_view(request):
         form = crearcssrule_form()
     context = {'form': form}
     return render(request, 'app/admin/crearcssrule.html', context)
+
+
+def cssruleslist_view(request):
+    userprofiles = UserProfile.objects.all().order_by('-create_at')
+    projects = Proyecto.objects.all().order_by('-create_at')
+    cssrules = Cssrules.objects.all().order_by('-create_at')
+    template = 'app/admin/cssruleslist.html'
+    return render_to_response(template,locals(),context_instance=RequestContext(request))

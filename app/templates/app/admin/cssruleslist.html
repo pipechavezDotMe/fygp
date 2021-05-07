@@ -5,34 +5,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 </style>
 
-{% include 'app/admin/admintop.html'%}
+{% include 'app/admin/admintopcrear.html'%}
 
 <div id="appRnav" class="appRnav">
   <div class="containerList">
 
     <div class="heads">
-      <p>Control de Proyectos</p>
+      <p>Control de CSS</p>
     </div>
 
-    {%for projects in projects%}
+    {%for cssrules in cssrules%}
                 <ul>
-                  <li><a id="list-project{{projects.id}}" href="{% url 'app.proyecto' projects.id%}"><span class="pam">({{projects.periodos}})</span> - {{projects.experiencia}}</a></li>
+                  <li><a id="list-project{{cssrules.id}}" href="{% url 'app.proyecto' cssrules.id%}"><span class="pam">({{cssrules.titulo}})</span> - {{cssrules.descripcion}}</a></li>
                   <div class="edit">
-                    <a href="{% url 'app.proyecto' projects.id%}">Editar</a><a href="javascript:openel{{projects.id}}()">Eliminar</a>
+         <!--           <a href="{% url 'app.proyecto' cssrules.id%}">Editar</a>
+-->
+         <a href="javascript:openel{{cssrules.id}}()">Eliminar</a>
                   </div>
 
-                  <div class="sureel" id="sureel{{projects.id}}">
+                  <div class="sureel" id="sureel{{cssrules.id}}">
                     <p>¿Seguro que desea eliminar este elemento?</p>
-                    <a class="siel" href="javascript:openel{{projects.id}}()">NO</a><a class="noel" href="{% url 'app.eliminar' projects.id%}">SI</a>
+                    <a class="siel" href="javascript:openel{{cssrules.id}}()">NO</a><a class="noel" href="{% url 'app.eliminarcss' cssrules.id%}">SI</a>
                   </div>
 
                   <script type="text/javascript">
-                      function openel{{projects.id}}(){
-                          if(document.getElementById('sureel{{projects.id}}').className == 'sureel')
+                      function openel{{cssrules.id}}(){
+                          if(document.getElementById('sureel{{cssrules.id}}').className == 'sureel')
                             {
-                           document.getElementById('sureel{{projects.id}}').className = 'sureel2';
+                           document.getElementById('sureel{{cssrules.id}}').className = 'sureel2';
                           } else {
-                          document.getElementById('sureel{{projects.id}}').className = 'sureel';
+                          document.getElementById('sureel{{cssrules.id}}').className = 'sureel';
                             }    
                       }
                   </script>
