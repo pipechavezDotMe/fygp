@@ -182,7 +182,7 @@ def upperiodos_view(request, slug):
     else:
         form = upperiodos_form()
     context = {'form': form}
-    return render(request, 'app/admin/upexperiencia.html', context)
+    return render(request, 'app/admin/upperiodos.html', context)
 
 def upinicio_view(request, slug):
     def get_context_data(self, **kwargs):
