@@ -20,8 +20,31 @@
                 <ul>
                   <li><a id="list-project{{projects.id}}" href="{% url 'app.proyecto' projects.id%}"><span class="pam">({{projects.periodos}})</span> - {{projects.experiencia}}</a></li>
                   <div class="edit">
-                    <a href="{% url 'app.proyecto' projects.id%}">Editar</a><a href="{% url 'app.eliminar' projects.id%}">Eliminar</a>
+                    <a href="{% url 'app.proyecto' projects.id%}">Editar</a><a href="javascript:openel{{projects.id}}()">Eliminar</a>
                   </div>
+
+                  <div class="sureel" id="sureel{{projects.id}}">
+                    <p>¿Seguro que desea eliminar este elemento?</p>
+                    <a class="siel" href="javascript:openel{{projects.id}}()">NO</a><a class="noel" href="{% url 'app.eliminar' projects.id%}">SI</a>
+                  </div>
+
+                  <script type="text/javascript">
+                      function openel{{projects.id}}(){
+                          if(document.getElementById('sureel{{projects.id}}').className == 'sureel')
+                            {
+                           document.getElementById('sureel{{projects.id}}').className = 'sureel2';
+                          } else {
+                          document.getElementById('sureel{{projects.id}}').className = 'sureel';
+                            }    
+                      }
+                  </script>
+                  <style type="text/css">
+                      .sureel{display: none;}
+                      .sureel2{display: block;background: white;padding: 10px;}
+                      .siel{display: inline-block;vertical-align: middle;padding: 20px;color: white!important;background: green!important;}
+                      .noel{display: inline-block;vertical-align: middle;padding: 20px;color: white!important;background: red!important;}
+                  </style>
+                      
                 </ul>
     {%endfor%}
 
