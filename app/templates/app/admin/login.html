@@ -1,6 +1,7 @@
 {% include 'app/_header.html'%}
 {% include 'app/_hoverheader.html'%}
 <div id="appRnav" class="appRnav">
+	<ion-icon name="people-circle-outline"></ion-icon>
 	<form method="post" action="">
     {% csrf_token %}
         {% if message %}<span>{{ message }}</span>{% endif %}
@@ -14,15 +15,22 @@
 <style type="text/css">
 *{margin: 0;padding: 0;text-decoration: none;list-style: none;font-family: 'Roboto', sans-serif;-webkit-transition: All 0.2s ease;-moz-transition: All 0.2s ease;-o-transition: All 0.2s ease;-ms-transition: All 0.2s ease;transition: All 0.2s ease;box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
 	#appRnav{padding:20px;margin:0 auto;width: 100%;height: 100%;right: 0;top: 0;display: flex;justify-content: center;align-items: center;}
-	#appRnav button{background:#68ae139c;border:none;border-radius:5px;padding:10px 20px;color:#fff;text-align:center;margin:5px auto;font-size:12px;display: inline-block;width: 100%;}
+	#appRnav button{background:#009ee2;border:none;border-radius:5px;padding:10px 20px;color:#fff;text-align:center;margin:5px auto;font-size:12px;display: inline-block;width: 100%;}
 	#appRnav label{display:none;}
 	#appRnav input{width: 80%;border:none;border-radius:30px;padding:10px;font-size:12px;margin:5px 0px;border: 2px solid rgba(0,0,0,0.5);}
 	#appRnav input:focus{width: 100%;}
-	#appRnav input:valid{border: 2px solid green;}
+	#appRnav input:valid{border: 2px solid #009ee2;}
 	#appRnav input:invalid{border: 2px solid red;}
 	#appRnav form p{color: #fff;padding: 10px;font-size: 14px;font-weight: bold;}
 	#appRnav form{background: rgba(255,255,255,0.1);padding: 5px;}
 	#appRnav form span{color: orange;font-size: 14px;padding: 10px;display: block;}
+	ion-icon {
+  font-size: 100px;
+}
+ion-icon {
+  color: white;
+}
+.outside-arrows-container{display: none!important;}
 </style>
 <style type="text/css">@media screen and (max-width:1000px){
 	input{width: 100%;}
