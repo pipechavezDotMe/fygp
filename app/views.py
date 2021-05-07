@@ -34,6 +34,7 @@ def home_view(request):
     message = ''
     userprofiles = UserProfile.objects.all().order_by('-create_at')
     projects = Proyecto.objects.all().order_by('-create_at')
+    cssrules = Cssrules.objects.all().order_by('-create_at')
     template = 'app/home.html'
     return render_to_response(template,locals(),context_instance=RequestContext(request))
 
@@ -42,6 +43,7 @@ def login_view(request):
         return redirect(reverse('app.list'))
     message = ''
     userprofile = UserProfile.objects.all().order_by('-create_at')
+    cssrules = Cssrules.objects.all().order_by('-create_at')
     template = 'app/admin/login.html'
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -59,6 +61,7 @@ def login_view(request):
 def list_view(request):
     userprofiles = UserProfile.objects.all().order_by('-create_at')
     projects = Proyecto.objects.all().order_by('-create_at')
+    cssrules = Cssrules.objects.all().order_by('-create_at')
     template = 'app/admin/list.html'
     return render_to_response(template,locals(),context_instance=RequestContext(request))
 
@@ -70,10 +73,12 @@ def logout_view(request):
 def proyecto_view(request, id):
     template = 'app/admin/proyecto.html'
     projects = Proyecto.objects.get(id = id)
+    cssrules = Cssrules.objects.all().order_by('-create_at')
     return render_to_response(template,locals(),context_instance=RequestContext(request))
 
 def borrarproyecto_view(request, id):
     projects = Proyecto.objects.get(id = id)
+    cssrules = Cssrules.objects.all().order_by('-create_at')
     projects.delete()
     return redirect(reverse('app.list'))
 
@@ -121,6 +126,7 @@ def crearproyecto_view(request):
         form = crearproyecto_form()
     context = {'form': form}
     context['proyecto'] = Proyecto.objects.all().order_by('-create_at')[:1]
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/crearproyecto.html', context)
 
 
@@ -147,6 +153,7 @@ def crearperiodo_view(request):
 def upexperiencia_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(upexperiencia_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -162,11 +169,13 @@ def upexperiencia_view(request, id):
     else:
         form = upexperiencia_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
 
 def upperiodos_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(upperiodos_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -182,11 +191,13 @@ def upperiodos_view(request, id):
     else:
         form = upperiodos_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upperiodos.html', context)
 
 def upinicio_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(upinicio_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -202,11 +213,13 @@ def upinicio_view(request, id):
     else:
         form = upinicio_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
 
 def upduracion_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(upduracion_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -222,11 +235,13 @@ def upduracion_view(request, id):
     else:
         form = upduracion_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
 
 def updescripcion_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(updescripcion_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -242,11 +257,13 @@ def updescripcion_view(request, id):
     else:
         form = updescripcion_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
 
 def upherramientas_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(upherramientas_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -262,11 +279,13 @@ def upherramientas_view(request, id):
     else:
         form = upherramientas_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
 
 def upfoto_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(upfoto_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -282,11 +301,13 @@ def upfoto_view(request, id):
     else:
         form = upfoto_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
 
 def upunidades_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(upunidades_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -302,11 +323,13 @@ def upunidades_view(request, id):
     else:
         form = upunidades_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
 
 def updepartametos_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(updepartametos_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -322,11 +345,13 @@ def updepartametos_view(request, id):
     else:
         form = updepartametos_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
 
 def upciudades_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(upciudades_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -342,11 +367,13 @@ def upciudades_view(request, id):
     else:
         form = upciudades_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
 
 def upconsultores_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(upconsultores_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -362,11 +389,13 @@ def upconsultores_view(request, id):
     else:
         form = upconsultores_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
 
 def upasesorados_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(upasesorados_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -382,11 +411,13 @@ def upasesorados_view(request, id):
     else:
         form = upasesorados_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
 
 def upaliados_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(upaliados_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -402,11 +433,13 @@ def upaliados_view(request, id):
     else:
         form = upaliados_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
 
 def upcontratantes_view(request, id):
     def get_context_data(self, **kwargs):
         context['proyecto'] = Proyecto.objects.get(id=id)
+        context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
         context = super(upcontratantes_view, self).get_context_data(**kwargs)
         return context
     if request.method == 'POST':
@@ -422,4 +455,28 @@ def upcontratantes_view(request, id):
     else:
         form = upcontratantes_form()
     context = {'form': form}
+    context['cssrules'] = Cssrules.objects.all().order_by('-create_at')[:1]
     return render(request, 'app/admin/upexperiencia.html', context)
+
+
+
+def crearcssrule_view(request):
+    def get_context_data(self, **kwargs):
+        context = super(crearcssrule_view, self).get_context_data(**kwargs)
+        return context
+    if request.method == 'POST':
+        form = crearcssrule_form(request.POST, request.FILES)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            titulo = cleaned_data.get('titulo')
+            descripcion = cleaned_data.get('descripcion')
+            cssrule = Cssrules()
+            cssrule.titulo = titulo
+            cssrule.descripcion = descripcion
+            cssrule.save()
+            message = 'Periodo publicado'
+            return redirect(reverse('app.list'), {'message': message})
+    else:
+        form = crearcssrule_form()
+    context = {'form': form}
+    return render(request, 'app/admin/crearcssrule.html', context)

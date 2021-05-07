@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^salir/$', views.logout_view, name='app.logout'),
     url(r'^eliminar/(?P<id>[^\.]+)/$', views.borrarproyecto_view, name='app.eliminar'),
     url(r'^nuevo-proyecto/$', views.crearproyecto_view, name='app.crearproyecto'),
+    url(r'^nuevo-css/$', views.crearcssrule_view, name='app.crearcssrule'),
     url(r'^nuevo-periodo/$', views.crearperiodo_view, name='app.crearperiodo'),
     url(r'^editar-proyecto-experiencia/(?P<id>[^\.]+)/$', views.upexperiencia_view, name='app.upexperiencia'),
     url(r'^editar-proyecto-periodos/(?P<id>[^\.]+)/$', views.upperiodos_view, name='app.upperiodos'),

@@ -86,3 +86,24 @@ class Proyecto(models.Model):
         if not self.id:
             self.slug = slugify(self.experiencia)
         super(Proyecto, self).save(*args, **kwargs)
+
+
+class Cssrules(models.Model):
+    titulo = models.CharField(max_length=300, verbose_name="Nombre de la regla")
+    descripcion = models.TextField(blank=True, verbose_name="contenido",max_length=3000000,)
+    create_at = models.DateTimeField(default=now, editable=False)
+    update_at = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
+    slug = models.SlugField(editable=False)
+
+    class Meta:
+        ordering = ['create_at']
+        verbose_name = "Cssrules"
+        verbose_name_plural = 'Cssrules'
+
+    def __unicode__(self):
+        return self.titulo
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.titulo)
+        super(Cssrules, self).save(*args, **kwargs)

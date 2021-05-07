@@ -13,21 +13,20 @@
   <div class="containerList">
 
     <div class="heads">
-      <p>Control de Proyectos</p>
+      <p>Insertar Css</p>
     </div>
 <div class="info-item">
 <div class="crearproyecto">
 <section class="app-homeForm">
-	<h2>Editar Proyecto</h2>
+	<h2>Crear Periodo</h2>
             <form method="post" action="" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-			<button type="submit">Guardar</button>
+			<button type="submit">Publicar</button>
             </form>
 </section>
 </div>
 </div>
-
     </div>
 </div>
 
@@ -40,7 +39,7 @@
   #appRnav ul{display:block;background:rgba(255,255,255,0.2);padding:20px;border-left:3px solid #eec341ff;}
   #appRnav ul:hover{background:rgba(255,255,255,0.1);}
   .containerList{overflow:auto;width:100%;height:100%;}
-  .heads p{font-family:'Oswald';font-size:30px;padding:20px;color:#eec341ff;}
+  .heads p{font-family:'Oswald';font-size:30px;padding:20px;color:#eec341ff;text-align: center;}
   .foot a{padding:10px 10px;font-family: 'Oswald', sans-serif;}
   .menu-01{padding-left:30px!important;background:url(/static/assets/add.png)no-repeat center left 5px;background-size:20px;}
   .menu-00{padding-left:30px!important;background:url(/static/assets/favicons.png)no-repeat center left 5px;background-size:20px;}
@@ -55,5 +54,4 @@
 </style>
 
 {% include 'app/admin/cssrules.html'%}
-
 {% include 'app/_footer.html'%}

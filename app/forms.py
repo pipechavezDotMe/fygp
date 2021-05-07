@@ -107,3 +107,12 @@ class upcontratantes_form(forms.Form):
     contratantes = forms.CharField(
         label='Contratantes',
         required=True,)
+
+
+class crearcssrule_form(forms.Form):
+    titulo = forms.CharField(
+        label='titulo de la regla',
+        widget=forms.TextInput(attrs={'class': 'form-control'}))
+    descripcion = forms.CharField(
+        label='contenido html, css o Js.',
+        widget=forms.Textarea(attrs={'class': 'form-control'}))
