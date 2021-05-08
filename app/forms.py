@@ -106,11 +106,11 @@ class upasesorados_form(forms.Form):
         label='Asesorados',
         required=True,)
 class upaliados_form(forms.Form):
-    aliados = forms.CharField(
+    aliados = forms.FileField(
         label='Aliados',
         required=True,)
 class upcontratantes_form(forms.Form):
-    contratantes = forms.CharField(
+    contratantes = forms.FileField(
         label='Contratantes',
         required=True,)
 

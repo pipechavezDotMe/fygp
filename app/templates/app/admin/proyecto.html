@@ -14,20 +14,20 @@
     <div class="info-item">
       <p><a href="{% url 'app.upfoto' projects.slug%}">Editar Foto</a><span>
       <img src="/media/{{projects.foto}}" alt="" width="200px;">
-      <p><span>{{projects.experiencia}} </span><a href="{% url 'app.upexperiencia' projects.slug%}">Editar</a></p>
-      <p><span>Descripción: </span>{{projects.descripcion}}<a href="{% url 'app.updescripcion' projects.slug%}">Editar</a></p>
-      <p><span>Período: </span>{{projects.periodos}} <a href="{% url 'app.upperiodos' projects.slug%}">Editar</a></p>
-      <p><span>Inicio: </span>{{projects.inicio}}  <a href="{% url 'app.upinicio' projects.slug%}">Editar</a></p>
-      <p><span>Duración: </span>{{projects.duracion}} <a href="{% url 'app.upduracion' projects.slug%}">Editar</a></p>
-      <p><span>Herramientas: </span>{{projects.herramientas|safe}} <a href="{% url 'app.upherramientas' projects.slug%}">Editar</a></p>
-      <p><span>Unidades: </span>{{projects.unidades}}<a href="{% url 'app.upunidades' projects.slug%}">Editar</a></p>
-      <p><span>Departamentos: </span>{{projects.departametos}}<a href="{% url 'app.updepartametos' projects.slug%}">Editar</a></p>
-      <p><span>Ciudades: </span>{{projects.ciudades}} <a href="{% url 'app.upciudades' projects.slug%}">Editar</a></p>
-      <p><span>Consultores: </span>{{projects.consultores}} <a href="{% url 'app.upconsultores' projects.slug%}">Editar</a></p>
-      <p><span>Asesorados: </span>{{projects.asesorados}} <a href="{% url 'app.upasesorados' projects.slug%}">Editar</a></p>
-      <p><span>Aliados: </span><a href="{% url 'app.upaliados' projects.slug%}">Editar</a></p>
+      <p><span>Proyecto: </span>{{projects.experiencia}}<a href="{% url 'app.upexperiencia' projects.slug%}">Editar Título</a></p>
+      <p><span>Descripción: </span>{{projects.descripcion}}<a href="{% url 'app.updescripcion' projects.slug%}">Editar Descripción</a></p>
+      <p><span>Período: </span>{{projects.periodos}} <a href="{% url 'app.upperiodos' projects.slug%}">Editar Editar Período</a></p>
+      <p><span>Inicio: </span>{{projects.inicio}}  <a href="{% url 'app.upinicio' projects.slug%}">Editar Inicio</a></p>
+      <p><span>Duración: </span>{{projects.duracion}} <a href="{% url 'app.upduracion' projects.slug%}">Editar Duración</a></p>
+      <p><span>Herramientas: </span>{{projects.herramientas|safe}} <a href="{% url 'app.upherramientas' projects.slug%}">Editar Herramientas</a></p>
+      <p><span># Unidades: </span>{{projects.unidades}}<a href="{% url 'app.upunidades' projects.slug%}">Editar # Unidades</a></p>
+      <p><span># Departamentos: </span>{{projects.departametos}}<a href="{% url 'app.updepartametos' projects.slug%}">Editar # Departamentos</a></p>
+      <p><span># Ciudades: </span>{{projects.ciudades}} <a href="{% url 'app.upciudades' projects.slug%}">Editar # Ciudades</a></p>
+      <p><span># Consultores: </span>{{projects.consultores}} <a href="{% url 'app.upconsultores' projects.slug%}">Editar # Consultores</a></p>
+      <p><span># Asesorados: </span>{{projects.asesorados}} <a href="{% url 'app.upasesorados' projects.slug%}">Editar # Asesorados</a></p>
+      <p><span># Aliados: </span><a href="{% url 'app.upaliados' projects.slug%}">Editar # Aliados</a></p>
       <img src="/static/{{projects.aliados}}" alt="" width="150px;">
-      <p><span>Contratantes: </span><a href="{% url 'app.upcontratantes' projects.slug%}">Editar</a></p>
+      <p><span># Contratantes: </span><a href="{% url 'app.upcontratantes' projects.slug%}">Editar # Contratantes</a></p>
       <img src="/static/{{projects.contratantes}}" alt="" width="150px;">
 <br><br><br>
     </div>
@@ -35,11 +35,14 @@
 
     <style type="text/css">
       .info-item{background:#fff;width:1000px;border-radius:4px;padding:10px;margin:10px;}
-      .info-item a{transition: 1s;color:#fff!important;background: #009ee2;padding: 5px 10px;border-radius: 8px;font-weight: bold;margin: 5px;}
+      .info-item a{transition: 1s;color:#fff!important;background: #009ee2;padding: 5px 10px;border-radius: 8px;font-weight: bold;margin: 5px;display: flex;}
       .info-item a:hover{color:#eec341ff!important;background: #000;padding: 5px 10px;font-weight: bold;}
       .info-item img{border: 1px solid #eec341ff;}
       .info-item span{font-weight:bold;}
       .info-item p{padding: 5px;
+            border: 1px solid #d3d4dc;
+    border-radius: 4px;
+    margin: 10px;
       }
       #appRnav > div > div.info-item > p:nth-child(1){
         display: flex;
