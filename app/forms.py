@@ -11,9 +11,10 @@ class crearproyecto_form(forms.Form):
         widget=forms.TextInput(attrs={'class': 'form-control'}))
     periodos = forms.ModelChoiceField(
         queryset=Periodos.objects.all(),label="Periodo",required=False)
-    inicio = forms.CharField(
+    inicio = forms.DateField(
         label='Inicio',
-        required=False,)
+        required=False,
+        widget=SelectDateWidget(attrs={'class': 'form-control'}))
     duracion = forms.CharField(
         label='Duracion',
         required=False,)
@@ -73,11 +74,13 @@ class upduracion_form(forms.Form):
 class updescripcion_form(forms.Form):
     descripcion = forms.CharField(
         label='Descripcion',
-        required=True,)
+        required=True,
+        widget=forms.Textarea(attrs={'class': 'form-control'}))
 class upherramientas_form(forms.Form):
     herramientas = forms.CharField(
         label='Herramientas',
-        required=True,)
+        required=True,
+        widget=forms.Textarea(attrs={'class': 'form-control'}))
 class upfoto_form(forms.Form):
     foto = forms.FileField(
         label='Foto',
@@ -110,7 +113,6 @@ class upcontratantes_form(forms.Form):
     contratantes = forms.CharField(
         label='Contratantes',
         required=True,)
-
 
 class crearcssrule_form(forms.Form):
     titulo = forms.CharField(
