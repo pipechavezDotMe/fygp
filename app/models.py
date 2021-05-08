@@ -72,7 +72,7 @@ class Proyecto(models.Model):
     user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Usuario",related_name='Responsable')
     create_at = models.DateTimeField(default=now, editable=False)
     update_at = models.DateTimeField(auto_now_add = False, auto_now=True, editable=False)
-    slug = models.SlugField(editable=False)
+    slug = models.SlugField(editable=True)
 
     class Meta:
         ordering = ['create_at']

@@ -16,14 +16,14 @@
 
     {%for projects in projects%}
                 <ul>
-                  <li><a id="list-project{{projects.id}}" href="{% url 'app.proyecto' projects.id%}"><span class="pam">({{projects.periodos}})</span> - {{projects.experiencia}}</a></li>
+                  <li><a id="list-project{{projects.id}}" href="{% url 'app.proyecto' projects.slug%}"><span class="pam">({{projects.periodos}})</span> - {{projects.experiencia}}</a></li>
                   <div class="edit">
-                    <a href="{% url 'app.proyecto' projects.id%}">Editar</a><a href="javascript:openel{{projects.id}}()">Eliminar</a>
+                    <a href="{% url 'app.proyecto' projects.slug%}">Editar</a><a href="javascript:openel{{projects.id}}()">Eliminar</a>
                   </div>
 
                   <div class="sureel" id="sureel{{projects.id}}">
                     <p>¿Seguro que desea eliminar este elemento?</p>
-                    <a class="siel" href="javascript:openel{{projects.id}}()">NO</a><a class="noel" href="{% url 'app.eliminar' projects.id%}">SI</a>
+                    <a class="siel" href="javascript:openel{{projects.id}}()">NO</a><a class="noel" href="{% url 'app.eliminar' projects.slug%}">SI</a>
                   </div>
 
                   <script type="text/javascript">

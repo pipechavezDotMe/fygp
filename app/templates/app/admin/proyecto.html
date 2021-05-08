@@ -12,6 +12,7 @@
       
     </div>
     <div class="info-item">
+      <p><a href="{% url 'app.upfoto' projects.slug%}">Editar Foto</a><span>
       <img src="/media/{{projects.foto}}" alt="" width="200px;">
       <p><a href="{% url 'app.upexperiencia' projects.slug%}">Editar</a><span>{{projects.experiencia}} </span></p>
       <p><a href="{% url 'app.updescripcion' projects.slug%}">Editar</a><span>Descripción: </span>{{projects.descripcion}}</p>

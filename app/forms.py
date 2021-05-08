@@ -3,49 +3,52 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import *
+from django.forms.extras.widgets import SelectDateWidget
 
 class crearproyecto_form(forms.Form):
     experiencia = forms.CharField(
         label='Título de la experiencia',
         widget=forms.TextInput(attrs={'class': 'form-control'}))
     periodos = forms.ModelChoiceField(
-        queryset=Periodos.objects.all(),label="Periodo",required=True)
+        queryset=Periodos.objects.all(),label="Periodo",required=False)
     inicio = forms.CharField(
         label='Inicio',
-        required=True,)
+        required=False,)
     duracion = forms.CharField(
         label='Duracion',
-        required=True,)
+        required=False,)
     descripcion = forms.CharField(
         label='Descripcion',
-        required=True,)
+        required=False,
+        widget=forms.Textarea(attrs={'class': 'form-control'}))
     herramientas = forms.CharField(
         label='Herramientas',
-        required=True,)
+        required=False,
+        widget=forms.Textarea(attrs={'class': 'form-control'}))
     foto = forms.FileField(
         label='Foto',
-        required=True,)
+        required=False,)
     unidades = forms.CharField(
         label='Unidades',
-        required=True,)
+        required=False,)
     departametos = forms.CharField(
         label='Departamentos',
-        required=True,)
+        required=False,)
     ciudades = forms.CharField(
         label='Ciudades',
-        required=True,)
+        required=False,)
     consultores = forms.CharField(
         label='Consultores',
-        required=True,)
+        required=False,)
     asesorados = forms.CharField(
         label='Asesorados',
-        required=True,)
+        required=False,)
     aliados = forms.CharField(
         label='Aliados',
-        required=True,)
+        required=False,)
     contratantes = forms.CharField(
         label='Contratantes',
-        required=True,)
+        required=False,)
 
 class crearperiodo_form(forms.Form):
     titulo = forms.CharField(
@@ -78,7 +81,7 @@ class upherramientas_form(forms.Form):
 class upfoto_form(forms.Form):
     foto = forms.FileField(
         label='Foto',
-        required=True,)
+        required=False,)
 class upunidades_form(forms.Form):
     unidades = forms.CharField(
         label='Unidades',
