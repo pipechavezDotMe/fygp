@@ -60,7 +60,7 @@ def login_view(request):
 
 def list_view(request):
     userprofiles = UserProfile.objects.all().order_by('-create_at')
-    projects = Proyecto.objects.all().order_by('create_at')
+    projects = Proyecto.objects.all().order_by('periodos')
     cssrules = Cssrules.objects.all().order_by('-create_at')
     template = 'app/admin/list.html'
     return render_to_response(template,locals(),context_instance=RequestContext(request))
