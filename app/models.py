@@ -39,7 +39,7 @@ class Periodos(models.Model):
     slug = models.SlugField(editable=False)
 
     class Meta:
-        ordering = ['create_at']
+        ordering = ['-titulo']
         verbose_name = "Periodo"
         verbose_name_plural = 'Periodos'
 
@@ -75,7 +75,7 @@ class Proyecto(models.Model):
     slug = models.SlugField(editable=True)
 
     class Meta:
-        ordering = ['create_at']
+        ordering = ['periodos']
         verbose_name = "Proyecto"
         verbose_name_plural = 'Proyectos'
 
