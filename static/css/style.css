@@ -1626,14 +1626,13 @@ a.selected {
 .closeCard:hover{
   transform: scale(1.25);
 }
-
 @media (max-width: 1480px) {
   #issues {
     margin: 0;
     height: 402px;
   }
 
-  .bloqueimagenes {
+.bloqueimagenes {
     margin-bottom: 10px;
     margin-top: 3%;
     width: 100%;
@@ -1643,6 +1642,11 @@ a.selected {
     height: 90%;
     width: 30%;
     margin: 12px 30px 10px 35px;
+    object-fit: cover;
+}
+
+.fechadur {
+  margin-right: 10px;
 }
 
 .datosexperiencia {
