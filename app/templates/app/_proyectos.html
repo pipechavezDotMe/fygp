@@ -1,3 +1,13 @@
+<style>
+.imagenexperiencia{
+position:absolute!important;right:0!important;
+}
+.bloquecompleto{
+position:relative;
+}
+.bloqueimagenes{position:absolute;bottom:0;}
+#issues{position:relative;}
+</style>
  <section class="timelinespace">
             <div id="timeline">
                   
@@ -25,11 +35,7 @@
                                     <p class="productoexp"><span>Proyecto: </span>{{projects.experiencia}}</p>
                                     <p class="descripcionexp">{{projects.descripcion}}</p>
                                     <div class="herramientasexperiencias">
-                                          <p>Encuentros lúdico – empresariales sobre gestión del cambio.</br>
-                                          Talleres de fortalecimiento de habilidades empresariales.</br>
-                                          Rueda de negocios.</br>
-                                          Diagnóstico.</br>
-                                          Asistencia técnica en temas de producción y comercialización.</p>
+                                          {{projects.herramientas|safe}}
                                     </div>
                                     <div class="unidadesexperinecia">
                                           <span>{{projects.unidades}}</span># Unidades productivas intervenidas
@@ -48,13 +54,13 @@
                                   <div class="aliadosexp">
                                     {%if projects.aliados%}
                                       <p class=""><span>Aliados: </span></p>
-                                      <img src="/static/{{projects.aliados}}" />
+                                      <img src="/media/{{projects.aliados}}" />
                                     {%endif%}
                                   </div>
                                   <div class="contratistasexp">
                                     {%if projects.contratantes%}
                                       <p class=""><span>Contratantes: </span></p>
-                                      <img src="/static/{{projects.contratantes}}" />
+                                      <img src="/media/{{projects.contratantes}}" />
                                       {%endif%}
                                   </div>
                               </div>
