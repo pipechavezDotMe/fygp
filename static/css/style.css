@@ -165,7 +165,6 @@ a.selected {
     #dates {
       /*width: 800px !important;*/
       height: 60px;
-      overflow: hidden;
       position: absolute;
       bottom: 0px;
       background: url(../img/dot.gif) left 52px repeat-x;
