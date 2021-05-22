@@ -44,10 +44,10 @@ class crearproyecto_form(forms.Form):
     asesorados = forms.CharField(
         label='Asesorados',
         required=False,)
-    aliados = forms.CharField(
+    aliados = forms.FileField(
         label='Aliados',
         required=False,)
-    contratantes = forms.CharField(
+    contratantes = forms.FileField(
         label='Contratantes',
         required=False,)
 
